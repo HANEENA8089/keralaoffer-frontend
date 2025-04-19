@@ -37,12 +37,32 @@ const Header = () => {
             </div>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex gap-2 font-base font-mluvka sm:gap-4 md:gap-6 lg:gap-8 xl:gap-10">
-            <Link to="/" className="text-xs sm:text-sm md:text-base lg:text-lg text-[#6600FF]">Home</Link>
-            <Link to="/aboutus" className="text-xs sm:text-sm md:text-base lg:text-lg text-[#6600FF]">About Us</Link>
-            <Link to="/offer" className="text-xs sm:text-sm md:text-base lg:text-lg text-[#6600FF]">Offers</Link>
-            <Link to="/contactus" className="text-xs sm:text-sm md:text-base lg:text-lg text-[#6600FF] mr-1 sm:mr-2">Contact Us</Link>
+          {/* Desktop Navigation (aligned to the right but a little to the left) */}
+          <div className="hidden uppercase lg:flex gap-4 font-base font-mluvka sm:gap-4 md:gap-8 lg:gap-10 xl:gap-12 flex-1 justify-end pr-19">
+            <Link
+              to="/"
+              className="text-xs sm:text-sm md:text-base lg:text-lg font-bold text-[#6600FF] hover:border-b-2 hover:border-[#6600FF] pb-2 transition-all"
+            >
+              Home
+            </Link>
+            <Link
+              to="/aboutus"
+              className="text-xs sm:text-sm md:text-base lg:text-lg font-bold text-[#6600FF] hover:border-b-2 hover:border-[#6600FF] pb-2 transition-all"
+            >
+              About Us
+            </Link>
+            <Link
+              to="/offer"
+              className="text-xs sm:text-sm md:text-base lg:text-lg font-bold text-[#6600FF] hover:border-b-2 hover:border-[#6600FF] pb-2 transition-all"
+            >
+              Offers
+            </Link>
+            <Link
+              to="/contactus"
+              className="text-xs sm:text-sm md:text-base lg:text-lg font-bold text-[#6600FF] mr-1 sm:mr-2 hover:border-b-2 hover:border-[#6600FF] pb-2 transition-all"
+            >
+              Contact Us
+            </Link>
           </div>
 
           {/* Mobile Menu Icon (bordered) */}
