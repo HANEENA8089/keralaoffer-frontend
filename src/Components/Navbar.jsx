@@ -29,8 +29,8 @@ function Navbar() {
   const navItems = [
     { icon: <FaHome size={24} />, path: '/', key: 'home', type: 'nav' },
     { icon: <FaShareAlt size={24} />, key: 'share', type: 'share' },
-    { icon: <ShoppingBag size={24} />, path: '/offer', key: 'offers', type: 'nav' },
-  ];
+    { icon: <ShoppingBag size={24} />, path: '/offer?section=more', key: 'offers', type: 'nav' }
+];
 
   return (
     <>

@@ -9,6 +9,7 @@ const initialOffers = [
     category: "Fashion",
     title: "CMR OFFER",
     liked: true,
+    discountText: "25% OFF Premium Spa Hair"
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ const initialOffers = [
     category: "Home",
     title: "50% OFFER",
     liked: true,
+    discountText: "50% OFF Home Decor items"
   },
   {
     id: 3,
@@ -23,6 +25,7 @@ const initialOffers = [
     category: "Women",
     title: "SARI COLECTION",
     liked: true,
+    discountText: "20% OFF on Sari Collections"
   },
   {
     id: 4,
@@ -30,6 +33,7 @@ const initialOffers = [
     category: "Women",
     title: "HOLI OFFER",
     liked: false,
+    discountText: "30% OFF on Holi Special"
   },
   {
     id: 5,
@@ -37,6 +41,7 @@ const initialOffers = [
     category: "Men",
     title: "SUMMER DEAL",
     liked: false,
+    discountText: "15% OFF Summer Apparel"
   },
   {
     id: 6,
@@ -44,6 +49,7 @@ const initialOffers = [
     category: "Kids",
     title: "TRENDY OFFER",
     liked: true,
+    discountText: "10% OFF Trendy Kidswear"
   },
   {
     id: 7,
@@ -51,6 +57,7 @@ const initialOffers = [
     category: "Men",
     title: "SUMMER DEAL",
     liked: false,
+    discountText: "15% OFF Summer Apparel"
   },
   {
     id: 8,
@@ -58,6 +65,7 @@ const initialOffers = [
     category: "Kids",
     title: "TRENDY OFFER",
     liked: true,
+    discountText: "10% OFF Trendy Kidswear"
   },
 ];
 
@@ -89,36 +97,45 @@ function OfferSection() {
         </button>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 pb-10">
-        {offers.map((offer) => (
-          <div key={offer.id} className="bg-white rounded-[12px] shadow-md overflow-hidden relative p-3 w-full">
-            <Link to="/offer">
-              <img
-                src={offer.image}
-                alt={offer.title}
-                className="rounded-[8px] object-cover w-full h-[160px] sm:h-[180px] md:h-[200px]"
-              />
-            </Link>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 pb-10">
+  {offers.map((offer) => (
+    <div key={offer.id} className="bg-white rounded-[12px] shadow-md overflow-hidden relative p-1 w-full sm:w-[calc(90%+1rem)] md:w-full">
+      <Link to="/offer">
+        <img
+          src={offer.image}
+          alt={offer.title}
+          className="rounded-[8px] object-cover w-full h-[160px] sm:h-[180px] md:h-[200px]"
+        />
+      </Link>
 
-            {/* Copy Link Icon */}
-            <button
-              onClick={() => copyLink(offer.id)}
-              className="absolute top-3 right-3 focus:outline-none"
-            >
-              <FaLink className="text-white bg-gray-700 text-white rounded-full opacity-50 hover:opacity-100 rounded-full p-1 w-5 h-5" />
-            </button>
+      {/* Copy Link Icon */}
+      <button
+        onClick={() => copyLink(offer.id)}
+        className="absolute top-3 right-3 focus:outline-none"
+      >
+        <FaLink className="text-white bg-gray-700 text-white rounded-full opacity-50 hover:opacity-100 rounded-full p-1 w-5 h-5" />
+      </button>
 
-            <div className="pt-3">
-              <p className="text-[13px] md:text-[14px] text-[#595959] font-normal" style={{ fontFamily: 'Inter' }}>
-                {offer.category}
-              </p>
-              <p className="font-semibold capitalize text-[#292929] text-[14px]" style={{ fontFamily: 'Inter' }}>
-                {offer.title}
-              </p>
-            </div>
-          </div>
-        ))}
+      <div className="pt-3">
+        <p className="text-[13px] md:text-[14px] text-[#595959] font-normal" style={{ fontFamily: 'Inter' }}>
+          {offer.category}
+        </p>
+        <p className="font-semibold capitalize text-[#292929] text-[14px]" style={{ fontFamily: 'Inter' }}>
+          {offer.title}
+        </p>
+
+        {/* Discount Button with dynamic text */}
+        <button
+          className="mt-3 px-6 py-2 text-white bg-violet-600 w-full rounded-[13px] text-[10px] sm:text-[10px] md:text-[10px] font-medium sm:font-normal shadow-md hover:bg-[#d34a5a] focus:outline-none"
+          style={{ fontFamily: 'Inter' }}
+        >
+          {offer.discountText}
+        </button>
       </div>
+    </div>
+  ))}
+</div>
+
     </div>
   );
 }
