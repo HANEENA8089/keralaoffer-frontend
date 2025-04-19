@@ -14,7 +14,7 @@ function ContactUs() {
     <>
     <Header/>
       {/* Back to Home Button */}
-      <div className="p-4">
+      {/* <div className="p-4">
         <button
           onClick={goBackHome}
           className="flex items-center text-violet-600 hover:text-violet-800 transition text-sm font-medium"
@@ -22,7 +22,7 @@ function ContactUs() {
           <FaArrowLeft className="mr-2" />
           Back to Home
         </button>
-      </div>
+      </div> */}
 
       <div className="flex flex-col lg:flex-row gap-12 p-8 lg:p-16 bg-gray-50 font-sans">
         {/* Left Side - Contact Info */}

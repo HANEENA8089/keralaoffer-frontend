@@ -17,19 +17,28 @@ function Banner() {
 
   return (
     <main className="relative w-full max-w-[1700px] h-[200px] sm:h-[250px] md:h-[300px] lg:h-[400px] xl:h-[500px] top-[35px] mx-auto">
-      <div className="relative w-full h-full rounded overflow-hidden">
+      <div
+  className="relative w-full h-full rounded overflow-hidden cursor-pointer"
+  onClick={() => setActiveIndex((activeIndex + 1) % images.length)}
+>
+
         {/* Desktop Image */}
-        <img
-          src={images[activeIndex]}
-          alt="Fashion Banner"
-          className="hidden sm:block w-full h-full object-cover"
-        />
-        {/* Mobile Image */}
-        <img
-          src={images[activeIndex]}
-          alt="Fashion Banner"
-          className="block sm:hidden w-full h-full object-cover"
-        />
+<img
+  src={images[activeIndex]}
+  alt="Fashion Banner"
+  className="hidden sm:block w-full h-full object-cover cursor-pointer"
+  onClick={() => setActiveIndex((activeIndex + 1) % images.length)}
+/>
+
+{/* Mobile Image */}
+<img
+  src={images[activeIndex]}
+  alt="Fashion Banner"
+  className="block sm:hidden w-full h-full object-cover cursor-pointer"
+  onClick={() => setActiveIndex((activeIndex + 1) % images.length)}
+/>
+
+
 
         <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-30 flex flex-col justify-center px-4 sm:px-6 md:px-10 text-white">
           <p className="text-xs sm:text-sm md:text-base font-semibold animate-fade-up">#FASHION DAY</p>

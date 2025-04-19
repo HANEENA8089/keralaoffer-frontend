@@ -7,8 +7,9 @@ const AboutUs = () => {
   const navigate = useNavigate();
 
   const goToContact = () => {
-    navigate('/contactus');
+    navigate('/offer'); // changed from '/contactus' to '/offer'
   };
+  
 
   const goBackHome = () => {
     navigate('/');
@@ -19,7 +20,7 @@ const AboutUs = () => {
     <Header/>
     <div className="min-h-screen bg-gradient-to-b from-white to-violet-50 p-6 flex flex-col items-center font-sans"> 
       {/* Back Button */}
-      <div className="w-full max-w-4xl mb-4">
+      {/* <div className="w-full max-w-4xl mb-4">
         <button
           onClick={goBackHome}
           className="flex items-center text-violet-600 hover:text-violet-800 transition text-sm font-medium" 
@@ -27,7 +28,7 @@ const AboutUs = () => {
           <FaArrowLeft className="mr-2" />
           Back to Home
         </button>
-      </div>
+      </div> */}
 
       <div className="max-w-4xl w-full text-center">
         {/* Optional Image Section */}
@@ -70,11 +71,12 @@ const AboutUs = () => {
         </div>
 
         <button
-          onClick={goToContact}
-          className="px-6 py-3 bg-violet-600 text-white rounded-md hover:bg-violet-700 transition font-medium"
-        >
-          Go to Contact Page
-        </button>
+  onClick={goToContact}
+  className="px-6 py-3 bg-violet-600 text-white rounded-md hover:bg-violet-700 transition font-medium"
+>
+  Go to Offers Page
+</button>
+
       </div>
     </div>
     </>

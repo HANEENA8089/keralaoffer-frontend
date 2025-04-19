@@ -1,6 +1,6 @@
-import { BadgePercent, ShoppingBag, TagIcon } from 'lucide-react';
+import { ShoppingBag } from 'lucide-react';
 import React from 'react';
-import { FaHome, FaShareAlt, FaShoppingBag, FaUser } from "react-icons/fa";
+import { FaHome, FaShareAlt } from "react-icons/fa";
 import { useLocation, useNavigate } from 'react-router-dom';
 
 function Navbar() {
@@ -30,12 +30,12 @@ function Navbar() {
     { icon: <FaHome size={24} />, path: '/', key: 'home', type: 'nav' },
     { icon: <FaShareAlt size={24} />, key: 'share', type: 'share' },
     { icon: <ShoppingBag size={24} />, path: '/offer', key: 'offers', type: 'nav' },
-    { icon: <FaUser size={24} />, path: '/profile', key: 'profile', type: 'nav' },
   ];
 
   return (
     <>
-      <div className="fixed bottom-0 left-0 w-full bg-white shadow-md z-50 flex justify-around items-center py-2">
+      {/* Mobile Navbar (hidden on desktop) */}
+      <div className="fixed bottom-0 left-0 w-full bg-white shadow-md z-50 flex justify-around items-center py-3 px-6 md:hidden">
         {navItems.map((item, index) => {
           const isActive = location.pathname === item.path;
           const isShare = item.type === 'share';
@@ -51,6 +51,11 @@ function Navbar() {
             </div>
           );
         })}
+      </div>
+
+      {/* Desktop Footer (hidden on mobile) */}
+      <div className="hidden md:flex justify-center items-center w-full py-4 bg-gray-100 text-gray-600 text-sm ">
+        © {new Date().getFullYear()}  Kerala Offer. All rights reserved.
       </div>
     </>
   );

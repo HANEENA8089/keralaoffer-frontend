@@ -1,56 +1,69 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { FaLink } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const initialOffers = [
-    {
-      id: 1,
-      image: "Images/offer1.png",
-      category: "Fashion",
-      title: "CMR OFFER",
-      liked: true,
-    },
-    {
-      id: 2,
-      image: "Images/offer2.png",
-      category: "Home",
-      title: "50% OFFER",
-      liked: true,
-    },
-    {
-      id: 3,
-      image: "Images/offer3.png",
-      category: "Women",
-      title: "SARI COLECTION",
-      liked: true,
-    },
-    {
-      id: 4,
-      image: "Images/offer4.png",
-      category: "Women",
-      title: "HOLI OFFER",
-      liked: false,
-    },
-    {
-      id: 5,
-      image: "Images/offer1.png",
-      category: "Men",
-      title: "SUMMER DEAL",
-      liked: false,
-    },
-    {
-      id: 6,
-      image: "Images/offer2.png",
-      category: "Kids",
-      title: "TRENDY OFFER",
-      liked: true,
-    },
-  ];
+  {
+    id: 1,
+    image: "Images/offer1.png",
+    category: "Fashion",
+    title: "CMR OFFER",
+    liked: true,
+  },
+  {
+    id: 2,
+    image: "Images/offer2.png",
+    category: "Home",
+    title: "50% OFFER",
+    liked: true,
+  },
+  {
+    id: 3,
+    image: "Images/offer3.png",
+    category: "Women",
+    title: "SARI COLECTION",
+    liked: true,
+  },
+  {
+    id: 4,
+    image: "Images/offer4.png",
+    category: "Women",
+    title: "HOLI OFFER",
+    liked: false,
+  },
+  {
+    id: 5,
+    image: "Images/offer1.png",
+    category: "Men",
+    title: "SUMMER DEAL",
+    liked: false,
+  },
+  {
+    id: 6,
+    image: "Images/offer2.png",
+    category: "Kids",
+    title: "TRENDY OFFER",
+    liked: true,
+  },
+  {
+    id: 7,
+    image: "Images/offer1.png",
+    category: "Men",
+    title: "SUMMER DEAL",
+    liked: false,
+  },
+  {
+    id: 8,
+    image: "Images/offer2.png",
+    category: "Kids",
+    title: "TRENDY OFFER",
+    liked: true,
+  },
+];
 
 function OfferSection() {
   const [offers, setOffers] = useState(initialOffers);
-  const [showAll, setShowAll] = useState(false);
-  const [visibleCount, setVisibleCount] = useState(4);
+  const navigate = useNavigate();
 
   const copyLink = (id) => {
     const url = `${window.location.origin}/offer/${id}`;
@@ -61,40 +74,23 @@ function OfferSection() {
     });
   };
 
-  useEffect(() => {
-    const handleResize = () => {
-      const width = window.innerWidth;
-      if (width < 640) setVisibleCount(2);
-      else if (width < 1024) setVisibleCount(3);
-      else setVisibleCount(4);
-    };
-
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  const displayedOffers = showAll ? offers : offers.slice(0, visibleCount);
-
   return (
     <div className="px-6 py-8 bg-[#F4F4F5]">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-[16px] sm:text-[18px] md:text-[20px] font-medium text-[#231F20]" style={{ fontFamily: 'Inter' }}>
           Offers Now!
         </h2>
-        {offers.length > visibleCount && !showAll && (
-          <button
-            onClick={() => setShowAll(true)}
-            className="text-[14px] sm:text-[16px] font-semibold text-[#EE5F73]"
-            style={{ fontFamily: 'Inter', textAlign: 'right' }}
-          >
-            See More
-          </button>
-        )}
+        <button
+          onClick={() => navigate('/offer')}
+          className="text-[14px] sm:text-[16px] font-semibold text-[#EE5F73]"
+          style={{ fontFamily: 'Inter', textAlign: 'right' }}
+        >
+          See More
+        </button>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-        {displayedOffers.map((offer) => (
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 pb-10">
+        {offers.map((offer) => (
           <div key={offer.id} className="bg-white rounded-[12px] shadow-md overflow-hidden relative p-3 w-full">
             <Link to="/offer">
               <img
